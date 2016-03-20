@@ -17,10 +17,10 @@ customize:
     thumbnail: true # enable posts thumbnail, options: true, false
     favicon: # path to favicon
     social_links: # for more icons, please see http://fontawesome.io/icons/#brand
-        twitter: https://twitter.com/kikotte
-        facebook: /
-        google-plus: /
-        github: https://github.com/gpoulet
+        twitter: https://www.twitter.com/kikotte
+        facebook: https://www.facebook.com/kikotte
+#        google-plus: /
+        github: https://www/github.com/gpoulet
 #        weibo: /
         rss: /atom.xml
 
