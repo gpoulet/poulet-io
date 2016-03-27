@@ -40,4 +40,4 @@ script:
 - hexo generate
 
 after_success:
-- hexo deploy
+- hexo deploy --debug
