@@ -3,7 +3,7 @@ menu:
     Home: /
     # Delete this row if you don't want categories in your header nav bar
     Categories:
-    About: /hexo-theme-hueman/about/index.html
+    About: /about.html
 
 # Customize
 customize:
