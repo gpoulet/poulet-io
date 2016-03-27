@@ -3,14 +3,44 @@
         <div class="container">
             <div class="container-inner">
                 <div id="header-title">
-                    <h1 class="logo-wrap">
-                        <a href="<%- url_for() %>" class="logo"></a>
-                    </h1>
-                    <% if (theme.subtitle) { %>
-                        <h2 class="subtitle-wrap">
-                            <p class="subtitle"><%= theme.subtitle %></p>
-                        </h2>
-                    <% } %>
+                    <!--<h1 class="logo-wrap">-->
+                        <!--<a href="<%- url_for() %>" class="logo"></a>-->
+                    <!--</h1>-->
+
+
+                    <span class="code-orange">class</span><span class="code-white"> Poulet.IO </span>
+                    <span class="code-orange">extends</span><span class="code-white"> React.</span>
+                    <span class="code-purple">Component</span><span class="code-white"> {</span>
+                    <br>
+                    <span class="code-yellow code-marge-4">render</span><span class="code-white">() {</span><br>
+                    <span class="code-orange code-marge-8">const </span>
+                    <span class="code-white">topics = [</span>
+                    <span class="code-green">&apos;Java&apos;</span>
+                    <span class="code-orange">, </span>
+                    <span class="code-green">&apos;JavaScript&apos;</span>
+                    <span class="code-orange">, </span>
+                    <span class="code-green">&apos;Web&apos;</span>
+                    <span class="code-orange">, </span>
+                    <span class="code-green">&apos;Automation&apos;</span>
+                    <span class="code-white">]</span>
+                    <span class="code-orange">&#59;</span>
+                   <br>
+                    <span class="code-orange code-marge-8">return </span>
+                    <span class="code-white">(</span>
+                    <span class="code-yellow">&lt;Blog </span>
+                    <span class="code-white">subject</span>
+                    <span class="code-green">=</span>
+                    <span class="code-white">{topics}</span>
+                    <span class="code-yellow"> &#47;&gt;</span>
+                    <span class="code-white">)</span>
+                    <span class="code-orange">;</span><br>
+                    <span class="code-white">&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }</span>
+                    <!--<% if (theme.subtitle) { %>-->
+                        <!--<h2 class="subtitle-wrap">-->
+                            <!--<p class="subtitle"><%= theme.subtitle %></p>-->
+                        <!--</h2>-->
+                    <!--<% } %>-->
                 </div>
                 <div id="header-inner" class="nav-container">
                     <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>

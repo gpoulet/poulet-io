@@ -4,7 +4,7 @@
 
 # Site
 title: Gauthier POULET's blog
-subtitle: "Java is the new sexy"
+subtitle:
 description:
 author: Gauthier POULET
 language: fr
@@ -94,7 +94,7 @@ js_minifier:
     exclude:
         - "*.min.js"
 image_minifier:
-    enable: true
+    enable: false
     interlaced: false
     multipass: false
     optimizationLevel: 2

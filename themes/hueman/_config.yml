@@ -8,10 +8,10 @@ menu:
 # Customize
 customize:
     logo:
-        width: 165
+        width: 60
         height: 60
-        url: images/logo-header.png
-    theme_color: '#C62828'
+        url: images/avatar.png
+    theme_color: '#01579B'
     highlight: androidstudio
     sidebar: left # sidebar position, options: left, right
     thumbnail: true # enable posts thumbnail, options: true, false
@@ -20,11 +20,12 @@ customize:
         twitter: https://www.twitter.com/kikotte
         facebook: https://www.facebook.com/kikotte
 #        google-plus: /
-        github: https://www/github.com/gpoulet
+        github: https://www.github.com/gpoulet
+        linkedin : https://fr.linkedin.com/in/gpoulet
 #        weibo: /
         rss: /atom.xml
 
-# Widgets
+# Widgetsh
 widgets:
     - recent_posts
     - category
