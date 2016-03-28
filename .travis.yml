@@ -18,9 +18,7 @@ before_script:
 - git config --global user.email 'gauthier.poulet@gmail.com'
 - sed -i'' "s~git@github.com:gpoulet/gpoulet.github.io.git~https://${GH_TOKEN}:x-oauth-basic@github.com/gpoulet/gpoulet.github.io.git~" _config.yml
 script:
-- hexo generate
-after_success:
-- hexo deploy
+- hexo deploy -g --silent
 env:
   global:
     secure: X7vILAfS1sJtEn4fkftr4A9Wx47KjiN9S1G6h7BoNSHFNVt34zJgWzT8qabb1vHMPHKsl31E7WLh1ibrXuz4VoFBiEMglnsCaLptGVZXhAasmySuTxXHueZIkEPtZHKl0iCeg9XwJ5JSqYx3PGX7pbcV1dtB2SQvg8dFcQEmncvzzY4zAQ9l2bQUYuwyqZiaJZ4VjVENcS79685EzLewhreA8HQddmH9LUk3HHDzhoccXRkCfTWozrJzZjnUPTKbj8mzrX3FPFD/fOFTi01d/3Mekc2CcsuFr/2ZS3I+KWZChkXPqZgcJabQrA3wmAHTmBBhB9aeG4NAamasS3a5qknm+hIQg4qhCYkGcSQCVy0y6lRhaesJzNu9HKYwpx5f6OdCRED931GGporqwyBNQ4UOqzVgWqcxskyeET9W14FtGTxaogOq8y8Mnai0t+2vSo/Uo4pS6iIVofLJ+cPVNLToWtzXpHnhUA86AxfRczx6hdRlI2i9MIHpZk8w+1U+7AKym8WrqHpYTrF8FOqsetj1BNa7Qbge/R68F2yqv/FqkXi1wrzndQTgp1wgatWDiyfDQsTMCT6QsiSoc0dF1evINybXG+/QG4hlOIC3tXhYicw1DvcKdDB1TQvDu85pzapcKyD+/OL/j0p/g1JBGOO8Jdi7YOj1khi6Gn4lz0U=
