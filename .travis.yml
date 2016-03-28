@@ -1,24 +1,51 @@
+# Deploy hexo site by travis-ci
+# https://github.com/jkeylu/deploy-hexo-site-by-travis-ci
+# LICENSE: MIT
+#
+# 1. Copy this file to the root of your repository, then rename it to '.travis.yml'
+# 2. Replace 'YOUR NAME' and 'YOUR EMAIL' at line 29
+# 3. Add an Environment Variable 'DEPLOY_REPO'
+#     1. Generate github access token on https://github.com/settings/applications#personal-access-tokens
+#     2. Add an Environment Variable on https://travis-ci.org/{github username}/{repository name}/settings/env_vars
+#         Variable Name: DEPLOY_REPO
+#         Variable Value: https://{githb access token}@github.com/{github username}/{repository name}.git
+#         Example: DEPLOY_REPO=https://6b75cfe9836f56e6d21187622730889874476c23@github.com/jkeylu/test-hexo-on-travis-ci.git
+
 language: node_js
+
 sudo: false
+
 cache:
   apt: true
   directories:
-  - node_modules
+    - node_modules
 node_js:
-- '5'
+  - "5"
 branches:
   only:
   - master
+
 before_install:
 - npm install -g hexo
+
 install:
 - npm install
+
+# Notice: Replace 'YOUR NAME' and 'YOUR EMAIL'
 before_script:
 - git config --global user.name 'Gauthier POULET'
 - git config --global user.email 'gauthier.poulet@gmail.com'
-- sed -i'' "s~git@github.com:gpoulet/gpoulet.github.io.git~https://${GH_TOKEN}:x-oauth-basic@github.com/gpoulet/gpoulet.github.io.git~" _config.yml
+
 script:
-- hexo deploy -g --silent
-env:
-  global:
-    secure: X7vILAfS1sJtEn4fkftr4A9Wx47KjiN9S1G6h7BoNSHFNVt34zJgWzT8qabb1vHMPHKsl31E7WLh1ibrXuz4VoFBiEMglnsCaLptGVZXhAasmySuTxXHueZIkEPtZHKl0iCeg9XwJ5JSqYx3PGX7pbcV1dtB2SQvg8dFcQEmncvzzY4zAQ9l2bQUYuwyqZiaJZ4VjVENcS79685EzLewhreA8HQddmH9LUk3HHDzhoccXRkCfTWozrJzZjnUPTKbj8mzrX3FPFD/fOFTi01d/3Mekc2CcsuFr/2ZS3I+KWZChkXPqZgcJabQrA3wmAHTmBBhB9aeG4NAamasS3a5qknm+hIQg4qhCYkGcSQCVy0y6lRhaesJzNu9HKYwpx5f6OdCRED931GGporqwyBNQ4UOqzVgWqcxskyeET9W14FtGTxaogOq8y8Mnai0t+2vSo/Uo4pS6iIVofLJ+cPVNLToWtzXpHnhUA86AxfRczx6hdRlI2i9MIHpZk8w+1U+7AKym8WrqHpYTrF8FOqsetj1BNa7Qbge/R68F2yqv/FqkXi1wrzndQTgp1wgatWDiyfDQsTMCT6QsiSoc0dF1evINybXG+/QG4hlOIC3tXhYicw1DvcKdDB1TQvDu85pzapcKyD+/OL/j0p/g1JBGOO8Jdi7YOj1khi6Gn4lz0U=
+- hexo generate
+
+after_success:
+- mkdir .deploy
+- cd .deploy
+- git clone --depth 1 --branch master --single-branch $DEPLOY_REPO . || (git init && git remote add -t master origin $DEPLOY_REPO)
+- rm -rf ./*
+- cp -r ../public/* .
+- git add -A .
+- git commit -m 'Site updated'
+- git branch -m master
+- git push -q -u origin master
